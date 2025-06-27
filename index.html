@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>王哲诚 - 个人学术主页</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c5e92;
+            --secondary: #3a7ca5;
+            --accent: #d4a017;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --gray: #6c757d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* 头部样式 */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 2rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            object-fit: cover;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, #8a9a9b, #e0e0e0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+        }
+        
+        .name-title h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .name-title h2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        /* 导航栏 */
+        nav {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: center;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li a {
+            display: block;
+            padding: 1.2rem 1.5rem;
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-links li a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-links li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links li a:hover::after {
+            width: 100%;
+        }
+        
+        /* 主要内容区域 */
+        section {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+        
+        /* 卡片样式 */
+        .card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card h3 {
+            color: var(--primary);
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        /* 教育经历 */
+        .education-item {
+            margin-bottom: 1.8rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px dashed #eaeaea;
+        }
+        
+        .education-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .edu-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+        
+        .edu-title {
+            font-weight: 600;
+            font-size: 1.2rem;
+            color: var(--dark);
+        }
+        
+        .edu-period {
+            color: var(--gray);
+            font-weight: 500;
+        }
+        
+        .edu-details {
+            color: var(--gray);
+        }
+        
+        /* 研究方向 */
+        .research-areas {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .research-tag {
+            background: #e3f2fd;
+            color: var(--primary);
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .research-tag:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        /* 教学工作 */
+        .teaching-item {
+            margin-bottom: 1.5rem;
+        }
+        
+        .teaching-level {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        /* 学术论文 */
+        .publication-item {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .pub-title {
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+            color: var(--dark);
+        }
+        
+        .pub-authors {
+            color: var(--gray);
+            margin-bottom: 0.4rem;
+            font-style: italic;
+        }
+        
+        .pub-info {
+            margin-bottom: 0.4rem;
+            font-size: 0.95rem;
+        }
+        
+        .pub-meta {
+            display: flex;
+            gap: 15px;
+            margin-top: 0.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .pub-badge {
+            background: #e8f4fc;
+            color: var(--primary);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        
+        /* 项目列表 */
+        .project-item {
+            margin-bottom: 1.8rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px dashed #eaeaea;
+        }
+        
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .project-title {
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 1.1rem;
+        }
+        
+        .project-period {
+            color: var(--gray);
+            font-weight: 500;
+        }
+        
+        .project-details {
+            color: var(--gray);
+        }
+        
+        /* 页脚 */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            margin-top: 2rem;
+            color: #999;
+            font-size: 0.9rem;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .header-content {
+                text-align: center;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .nav-links li a {
+                padding: 1rem;
+            }
+            
+            .edu-header, .project-header {
+                flex-direction: column;
+                gap: 5px;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .profile-img {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .name-title h1 {
+                font-size: 2rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 0.8rem;
+                align-items: center;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav-links li {
+                width: 100%;
+                text-align: center;
+            }
+        }
+        
+        /* 新增样式 */
+        .language-switch {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        
+        .language-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        
+        .language-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: var(--gray);
+            font-size: 1.1rem;
+            margin-top: -2rem;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+        
+        .bilingual-section {
+            background: linear-gradient(to right, #ffffff 50%, #f8f9fa 50%);
+            background-size: 200% 100%;
+            transition: background-position 0.5s;
+        }
+        
+        .english-content {
+            display: none;
+        }
+        
+        .show-english .english-content {
+            display: block;
+        }
+        
+        .show-english .chinese-content {
+            display: none;
+        }
+        
+        .show-english .bilingual-section {
+            background-position: -100% 0;
+        }
+        
+        .content-container {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .content-container > div {
+            flex: 1;
+        }
+        
+        .content-title {
+            color: var(--primary);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #eaeaea;
+        }
+        
+        .content-block {
+            margin-bottom: 2rem;
+        }
+        
+        .year-section {
+            margin-bottom: 2rem;
+        }
+        
+        .year-title {
+            background: var(--primary);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            display: inline-block;
+        }
+        
+        .pub-container {
+            max-height: 600px;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+        
+        .pub-container::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .pub-container::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+        
+        .pub-container::-webkit-scrollbar-thumb {
+            background: #c1c1c1;
+            border-radius: 4px;
+        }
+        
+        .pub-container::-webkit-scrollbar-thumb:hover {
+            background: #a8a8a8;
+        }
+    </style>
+</head>
+<body>
+    <!-- 语言切换按钮 -->
+    <div class="language-switch">
+        <button class="language-btn" id="toggleLanguage">Switch to English</button>
+    </div>
+    
+    <!-- 头部区域 -->
+    <header>
+        <div class="container header-content">
+            <div class="profile-img">
+                <i class="fas fa-user-graduate"></i>
+            </div>
+            <div class="name-title">
+                <h1>王哲诚</h1>
+                <h2>讲师 | Lecturer</h2>
+            </div>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>zhecheng.wang@qhu.edu.cn</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>青海大学 | Qinghai University</span>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- 导航栏 -->
+    <nav>
+        <div class="container nav-container">
+            <ul class="nav-links">
+                <li><a href="#about">个人简介 | About</a></li>
+                <li><a href="#education">教育经历 | Education</a></li>
+                <li><a href="#research">研究方向 | Research</a></li>
+                <li><a href="#publications">学术论文 | Publications</a></li>
+                <li><a href="#projects">科研项目 | Projects</a></li>
+                <li><a href="#standards">技术提案 | Standards</a></li>
+                <li><a href="#patents">发明专利 | Patents</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- 主要内容区域 -->
+    <main class="container">
+        <!-- 个人简介部分 - 中英双语 -->
+        <section id="about" class="bilingual-section">
+            <div class="section-title">
+                <h2>个人简介 | About Me</h2>
+            </div>
+            <div class="card">
+                <div class="chinese-content">
+                    <p>王哲诚，工学博士，现任青海大学讲师。主要研究方向为计算机视觉、多媒体数据处理、压缩编解码和存储。在点云压缩、几何编码等领域取得多项创新性研究成果，多篇论文发表于IEEE Transactions on Multimedia、IEEE Transactions on Circuits and Systems for Video Technology等国际顶级期刊。</p>
+                    <p style="margin-top: 15px;">作为主要贡献者参与了G-PCC国际标准的制定工作，提交的多项技术提案被第一代和第二代G-PCC国际标准采纳。主持和参与多项企业合作科研项目，与浪潮、OPPO、上海海思等企业保持密切合作关系。</p>
+                </div>
+                <div class="english-content">
+                    <p>Zhecheng Wang, Ph.D. in Engineering, currently serves as a Lecturer at Qinghai University. His main research interests include computer vision, multimedia data processing, compression coding and decoding, and storage. He has achieved multiple innovative research results in fields such as point cloud compression and geometric coding, with numerous papers published in top international journals including IEEE Transactions on Multimedia and IEEE Transactions on Circuits and Systems for Video Technology.</p>
+                    <p style="margin-top: 15px;">As a key contributor to the development of the G-PCC international standard, he has submitted several technical proposals that have been adopted by both the first and second generations of the G-PCC standard. He has led and participated in multiple enterprise collaborative research projects, maintaining close partnerships with companies such as Inspur, OPPO, and Shanghai Hisilicon.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 教育经历 - 中英双语 -->
+        <section id="education" class="bilingual-section">
+            <div class="section-title">
+                <h2>教育经历 | Education</h2>
+            </div>
+            <div class="card">
+                <div class="content-container">
+                    <div class="chinese-content">
+                        <div class="content-title">中文</div>
+                        <div class="education-item">
+                            <div class="edu-header">
+                                <div class="edu-title">西北工业大学 · 工学博士</div>
+                                <div class="edu-period">2019 - 2024</div>
+                            </div>
+                            <div class="edu-details">信息与通信工程专业</div>
+                        </div>
+                        
+                        <div class="education-item">
+                            <div class="edu-header">
+                                <div class="edu-title">慕尼黑工业大学 · 理学硕士</div>
+                                <div class="edu-period">2015 - 2017</div>
+                            </div>
+                            <div class="edu-details">电子工程与信息技术专业</div>
+                        </div>
+                        
+                        <div class="education-item">
+                            <div class="edu-header">
+                                <div class="edu-title">同济大学 · 工程硕士</div>
+                                <div class="edu-period">2014 - 2018</div>
+                            </div>
+                            <div class="edu-details">电子与通信工程专业</div>
+                        </div>
+                        
+                        <div class="education-item">
+                            <div class="edu-header">
+                                <div class="edu-title">郑州大学 · 工学学士</div>
+                                <div class="edu-period">2010 - 2014</div>
+                            </div>
+                            <div class="edu-details">通信工程专业</div>
+                        </div>
+                    </div>
+                    
+                    <div class="english-content">
+                        <div class="content-title">English</div>
+                        <div class="education-item">
+                            <div class="edu-header">
+                                <div class="edu-title">Northwestern Polytechnical University · Ph.D.</div>
+                                <div class="edu-period">2019 - 2024</div>
+                            </div>
+                            <div class="edu-details">Information and Communication Engineering</div>
+                        </div>
+                        
+                        <div class="education-item">
+                            <div class="edu-header">
+                                <div class="edu-title">Technical University of Munich · M.Sc.</div>
+                                <div class="edu-period">2015 - 2017</div>
+                            </div>
+                            <div class="edu-details">Electronic Engineering and Information Technology</div>
+                        </div>
+                        
+                        <div class="education-item">
+                            <div class="edu-header">
+                                <div class="edu-title">Tongji University · M.Eng.</div>
+                                <div class="edu-period">2014 - 2018</div>
+                            </div>
+                            <div class="edu-details">Electronics and Communication Engineering</div>
+                        </div>
+                        
+                        <div class="education-item">
+                            <div class="edu-header">
+                                <div class="edu-title">Zhengzhou University · B.Eng.</div>
+                                <div class="edu-period">2010 - 2014</div>
+                            </div>
+                            <div class="edu-details">Communication Engineering</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 研究方向 -->
+        <section id="research">
+            <div class="section-title">
+                <h2>研究方向 | Research Interests</h2>
+            </div>
+            <div class="card">
+                <div class="research-areas">
+                    <div class="research-tag">计算机视觉 | Computer Vision</div>
+                    <div class="research-tag">多媒体数据处理 | Multimedia Data Processing</div>
+                    <div class="research-tag">数据压缩编解码 | Data Compression Coding</div>
+                    <div class="research-tag">点云压缩 | Point Cloud Compression</div>
+                    <div class="research-tag">几何编码 | Geometric Coding</div>
+                    <div class="research-tag">视频编码标准 | Video Coding Standards</div>
+                    <div class="research-tag">智能存储算法 | Intelligent Storage Algorithms</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 教学工作 -->
+        <section>
+            <div class="section-title">
+                <h2>教学工作 | Teaching</h2>
+            </div>
+            <div class="card">
+                <div class="teaching-item">
+                    <div class="teaching-level">本科生课程 | Undergraduate Courses</div>
+                    <p>计算机系统平台、网络技术及其应用</p>
+                    <p>Computer System Platform, Network Technology and Applications</p>
+                </div>
+                
+                <div class="teaching-item">
+                    <div class="teaching-level">硕士研究生课程 | Graduate Courses</div>
+                    <p>高级机器学习</p>
+                    <p>Advanced Machine Learning</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 学术论文 -->
+        <section id="publications">
+            <div class="section-title">
+                <h2>学术论文 | Publications</h2>
+            </div>
+            
+            <div class="card">
+                <div class="pub-container">
+                    <!-- 2025年论文 -->
+                    <div class="year-section">
+                        <div class="year-title">2025</div>
+                        <div class="publication-item">
+                            <div class="pub-title">Octree-STCM: Octree-Based Spatio-Temporal Context Model for Lossless Geometry Compression of Dynamic Point Cloud</div>
+                            <div class="pub-authors">WANG Z, WAN S, HUANG J</div>
+                            <div class="pub-info">Proceedings of the 2025 International Conference on Multimedia Retrieval, 2025: 2073-2077</div>
+                            <div class="pub-meta">
+                                <span class="pub-badge">EI会议</span>
+                                <span class="pub-badge">CCF B</span>
+                            </div>
+                        </div>
+                        
+                        <div class="publication-item">
+                            <div class="pub-title">Quantization Parameter Cascading for Lossy Point Cloud Attribute Compression in G-PCC</div>
+                            <div class="pub-authors">WEI L, ZHU Z, WANG Z, et al.</div>
+                            <div class="pub-info">APSIPA Transactions on Signal and Information Processing, 2025, 14(2)</div>
+                            <div class="pub-meta">
+                                <span class="pub-badge">SCI期刊</span>
+                                <span class="pub-badge">中科院三区</span>
+                                <span class="pub-badge">JCR Q2</span>
+                                <span class="pub-badge">IF: 3.2</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 2024年论文 -->
+                    <div class="year-section">
+                        <div class="year-title">2024</div>
+                        <div class="publication-item">
+                            <div class="pub-title">Optimized octree codec for geometry-based point cloud compression</div>
+                            <div class="pub-authors">WANG Z, WAN S, WEI L</div>
+                            <div class="pub-info">Signal, Image and Video Processing, 2024, 18: 761-772</div>
+                            <div class="pub-meta">
+                                <span class="pub-badge">SCI期刊</span>
+                                <span class="pub-badge">中科院四区</span>
+                                <span class="pub-badge">JCR Q3</span>
+                                <span class="pub-badge">IF: 2.0</span>
+                            </div>
+                        </div>
+                        
+                        <div class="publication-item">
+                            <div class="pub-title">Near-Lossless Compression of Point Cloud Attribute Using Quantization Parameter Cascading and Rate-Distortion Optimization</div>
+                            <div class="pub-authors">WEI L, WAN S, WANG Z, et al.</div>
+                            <div class="pub-info">IEEE Transactions on Multimedia, 2024, 26: 3317-3330</div>
+                            <div class="pub-meta">
+                                <span class="pub-badge">SCI期刊</span>
+                                <span class="pub-badge">中科院一区Top</span>
+                                <span class="pub-badge">JCR Q1</span>
+                                <span class="pub-badge">IF: 9.7</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 2023年论文 -->
+                    <div class="year-section">
+                        <div class="year-title">2023</div>
+                        <div class="publication-item">
+                            <div class="pub-title">Local geometry-based intra prediction for octree-structured geometry coding of point clouds</div>
+                            <div class="pub-authors">WANG Z, WAN S, WEI L</div>
+                            <div class="pub-info">IEEE Transactions on Circuits and Systems for Video Technology, 2023, 33(2): 886-896</div>
+                            <div class="pub-meta">
+                                <span class="pub-badge">SCI期刊</span>
+                                <span class="pub-badge">中科院一区TOP</span>
+                                <span class="pub-badge">JCR Q1</span>
+                                <span class="pub-badge">IF: 11.1</span>
+                            </div>
+                        </div>
+                        
+                        <div class="publication-item">
+                            <div class="pub-title">八叉树结构下动态点云的无损几何编码方法</div>
+                            <div class="pub-authors">王哲诚, 万帅, 魏磊</div>
+                            <div class="pub-info">西安交通大学学报, 2023, 57(12): 11-19</div>
+                            <div class="pub-meta">
+                                <span class="pub-badge">EI期刊</span>
+                                <span class="pub-badge">北大核心</span>
+                                <span class="pub-badge">IF: 1.17</span>
+                            </div>
+                        </div>
+                        
+                        <div class="publication-item">
+                            <div class="pub-title">Adaptive Geometry Reconstruction for Geometry-based Point Cloud Compression</div>
+                            <div class="pub-authors">WEI L, WAN S, DING X, YANG F, WANG Z</div>
+                            <div class="pub-info">2023 IEEE International Conference on Multimedia and Expo (ICME), 2023: 1985-1990</div>
+                            <div class="pub-meta">
+                                <span class="pub-badge">EI会议</span>
+                                <span class="pub-badge">CCF B</span>
+                            </div>
+                        </div>
+                        
+                        <div class="publication-item">
+                            <div class="pub-title">Optimization of octree-based adaptive geometry quantization via up-sampling for G-PCC</div>
+                            <div class="pub-authors">WEI L, WAN S, DING X, WANG Z</div>
+                            <div class="pub-info">2023 IEEE International Conference on Visual Communications and Image Processing (VCIP), 2023: 1-5</div>
+                            <div class="pub-meta">
+                                <span class="pub-badge">EI会议</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 2022年论文 -->
+                    <div class="year-section">
+                        <div class="year-title">2022</div>
+                        <div class="publication-item">
+                            <div class="pub-title">Logistic regression guided coding of single child mode for point cloud geometry compression</div>
+                            <div class="pub-authors">WANG Z, WAN S, WEI L</div>
+                            <div class="pub-info">2022 Picture Coding Symposium (PCS), IEEE, 2022: 145-149</div>
+                            <div class="pub-meta">
+                                <span class="pub-badge">EI会议</span>
+                            </div>
+                        </div>
+                        
+                        <div class="publication-item">
+                            <div class="pub-title">Entropy coding of point cloud geometry using memory channel</div>
+                            <div class="pub-authors">WANG Z, WAN S, WEI L</div>
+                            <div class="pub-info">2022 IEEE 8th International Conference on Computer and Communications (ICCC), IEEE, 2022: 962-966</div>
+                            <div class="pub-meta">
+                                <span class="pub-badge">EI会议</span>
+                            </div>
+                        </div>
+                        
+                        <div class="publication-item">
+                            <div class="pub-title">Content-Adaptive Level of Detail for Lossless Point Cloud Compression</div>
+                            <div class="pub-authors">WEI L, WAN S, YANG F, WANG Z</div>
+                            <div class="pub-info">APSIPA Transactions on Signal and Information Processing, 2022, 11(1)</div>
+                            <div class="pub-meta">
+                                <span class="pub-badge">SCI期刊</span>
+                                <span class="pub-badge">中科院三区</span>
+                                <span class="pub-badge">JCR Q2</span>
+                                <span class="pub-badge">IF: 3.2</span>
+                            </div>
+                        </div>
+                        
+                        <div class="publication-item">
+                            <div class="pub-title">Geometry reconstruction for spatial scalability in point cloud compression based on neighbour occupancies</div>
+                            <div class="pub-authors">CHEN Z, WAN S, WANG Z</div>
+                            <div class="pub-info">International Workshop on Advanced Imaging Technology (IWAIT), SPIE, 2022, 121(77)</div>
+                            <div class="pub-meta">
+                                <span class="pub-badge">EI会议</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 2021年论文 -->
+                    <div class="year-section">
+                        <div class="year-title">2021</div>
+                        <div class="publication-item">
+                            <div class="pub-title">面向点云无损压缩的快速细节层次优化方法</div>
+                            <div class="pub-authors">魏磊, 万帅, 王哲诚, 等</div>
+                            <div class="pub-info">西安交通大学学报, 2021, 55(09): 88-96</div>
+                            <div class="pub-meta">
+                                <span class="pub-badge">EI期刊</span>
+                                <span class="pub-badge">北大核心</span>
+                                <span class="pub-badge">IF: 1.17</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 科研项目 -->
+        <section id="projects">
+            <div class="section-title">
+                <h2>科研项目 | Research Projects</h2>
+            </div>
+            <div class="card">
+                <div class="project-item">
+                    <div class="project-header">
+                        <div class="project-title">浪潮存储青蓝基金</div>
+                        <div class="project-period">2025-06至今</div>
+                    </div>
+                    <div class="project-details">企业合作项目：智能存储算法关键技术研究，第一参与人</div>
+                    <div class="project-details">Enterprise Collaboration: Research on Key Technologies of Intelligent Storage Algorithms, First Participant</div>
+                </div>
+                
+                <div class="project-item">
+                    <div class="project-header">
+                        <div class="project-title">TCL创新科技基金</div>
+                        <div class="project-period">2023-12至今</div>
+                    </div>
+                    <div class="project-details">产学研专项基金：下一代国际视频编码标准关键技术研究，第一参与人</div>
+                    <div class="project-details">Industry-University-Research Special Fund: Research on Key Technologies of Next-Generation International Video Coding Standards, First Participant</div>
+                </div>
+                
+                <div class="project-item">
+                    <div class="project-header">
+                        <div class="project-title">上海海思技术有限公司合作项目</div>
+                        <div class="project-period">2022-12至2023-12</div>
+                    </div>
+                    <div class="project-details">VVC编码算法优化技术研究技术合作项目，第一参与人</div>
+                    <div class="project-details">Technical Collaboration Project on VVC Coding Algorithm Optimization Research, First Participant</div>
+                </div>
+                
+                <div class="project-item">
+                    <div class="project-header">
+                        <div class="project-title">OPPO广东移动通信有限公司合作项目</div>
+                        <div class="project-period">2020-01至2021-12</div>
+                    </div>
+                    <div class="project-details">未来视频标准技术合作项目，第一参与人</div>
+                    <div class="project-details">Future Video Standards Technical Collaboration Project, First Participant</div>
+                </div>
+                
+                <div class="project-item">
+                    <div class="project-header">
+                        <div class="project-title">OPPO广东移动通信有限公司合作项目</div>
+                        <div class="project-period">2019-02至2020-04</div>
+                    </div>
+                    <div class="project-details">未来视频标准技术合作合同，第一参与人</div>
+                    <div class="project-details">Future Video Standards Technical Collaboration Contract, First Participant</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 国际标准技术提案 -->
+        <section id="standards">
+            <div class="section-title">
+                <h2>国际标准技术提案 | Technical Proposals</h2>
+            </div>
+            <div class="card">
+                <div class="publication-item">
+                    <div class="pub-title">On improving the eligibility of planar mode</div>
+                    <div class="pub-authors">WANG Z, WAN S</div>
+                    <div class="pub-info">ISO/IEC JTC1/SC29/WG7 m59001, 2022 (被第二代G-PCC国际标准采纳)</div>
+                    <div class="pub-info">(Adopted by the second-generation G-PCC international standard)</div>
+                </div>
+                
+                <div class="publication-item">
+                    <div class="pub-title">EE13.57 Test 1 Report on planar mode</div>
+                    <div class="pub-authors">WANG Z, WAN S</div>
+                    <div class="pub-info">ISO/IEC JTC1/SC29 WG7 m59533, 2022 (被第二代G-PCC国际标准采纳)</div>
+                    <div class="pub-info">(Adopted by the second-generation G-PCC international standard)</div>
+                </div>
+                
+                <div class="publication-item">
+                    <div class="pub-title">On geometry occupancy intra prediction</div>
+                    <div class="pub-authors">WAN S, WANG Z, YU Y, et al.</div>
+                    <div class="pub-info">ISO/IEC JTC1/SC29 WG11 m52327, 2020 (被第一代G-PCC国际标准采纳)</div>
+                    <div class="pub-info">(Adopted by the first-generation G-PCC international standard)</div>
+                </div>
+                
+                <div class="publication-item">
+                    <div class="pub-title">CE13.11 report on Intra occupancy prediction</div>
+                    <div class="pub-authors">WAN S, WANG Z, YU Y, et al.</div>
+                    <div class="pub-info">ISO/IEC JTC1/SC29 WG11 m53328, 2020 (被第一代G-PCC国际标准采纳)</div>
+                    <div class="pub-info">(Adopted by the first-generation G-PCC international standard)</div>
+                </div>
+                
+                <div class="publication-item">
+                    <div class="pub-title">Harmonization for planar mode and occupancy intra prediction</div>
+                    <div class="pub-authors">WAN S, WANG Z, YU Y, et al.</div>
+                    <div class="pub-info">ISO/IEC JTC1/SC29 WG11 m53723, 2020 (被第一代G-PCC国际标准采纳)</div>
+                    <div class="pub-info">(Adopted by the first-generation G-PCC international standard)</div>
+                </div>
+                
+                <div class="publication-item">
+                    <div class="pub-title">On the initial probability of binary coders in dynamic OBUF</div>
+                    <div class="pub-authors">TIAN T, HAO S, WANG Z, et al.</div>
+                    <div class="pub-info">ISO/IEC JTC1/SC29 WG7 m61098, 2022 (被第二代G-PCC国际标准采纳)</div>
+                    <div class="pub-info">(Adopted by the second-generation G-PCC international standard)</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 发明专利 -->
+        <section id="patents">
+            <div class="section-title">
+                <h2>发明专利 | Patents</h2>
+            </div>
+            <div class="card">
+                <div class="publication-item">
+                    <div class="pub-title">点云编解码方法、编码器、解码器以及计算机存储介质</div>
+                    <div class="pub-authors">万帅, 王哲诚</div>
+                    <div class="pub-info">中国发明专利, CN202080103910.6, 2024-12-27</div>
+                    <div class="pub-info">Point Cloud Encoding and Decoding Method, Encoder, Decoder, and Computer Storage Medium</div>
+                </div>
+                
+                <div class="publication-item">
+                    <div class="pub-title">基于平面拟合中心坐标投影的点云空间可伸缩编码几何重构方法</div>
+                    <div class="pub-authors">万帅, 陈章, 王哲诚</div>
+                    <div class="pub-info">中国发明专利, ZL202110753985.5, 2023-02-10</div>
+                    <div class="pub-info">Point Cloud Spatial Scalable Coding Geometry Reconstruction Method Based on Planar Fitting Center Coordinate Projection</div>
+                </div>
+                
+                <div class="publication-item">
+                    <div class="pub-title">基于拟合平面几何误差最小的点云空间可伸缩编码几何重构方法</div>
+                    <div class="pub-authors">万帅, 陈章, 王哲诚, 等</div>
+                    <div class="pub-info">中国发明专利, ZL202110753984.0, 2023-02-14</div>
+                    <div class="pub-info">Point Cloud Spatial Scalable Coding Geometry Reconstruction Method Based on Minimal Geometric Error of Fitted Planes</div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- 页脚 -->
+    <footer>
+        <div class="container footer-content">
+            <h3>王哲诚 · Zhecheng Wang</h3>
+            <p>青海大学 · 信息与通信工程 | Qinghai University · Information and Communication Engineering</p>
+            
+            <div class="footer-links">
+                <a href="mailto:zhecheng.wang@qhu.edu.cn">
+                    <i class="fas fa-envelope"></i> 邮箱 | Email
+                </a>
+                <a href="#">
+                    <i class="fas fa-graduation-cap"></i> Google Scholar
+                </a>
+                <a href="#">
+                    <i class="fab fa-researchgate"></i> ResearchGate
+                </a>
+                <a href="#">
+                    <i class="fas fa-book"></i> 课程资料 | Courses
+                </a>
+            </div>
+            
+            <div class="copyright">
+                © 2025 王哲诚 - 个人学术主页 | Personal Academic Homepage
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 语言切换功能
+        const toggleBtn = document.getElementById('toggleLanguage');
+        const body = document.body;
+        
+        toggleBtn.addEventListener('click', function() {
+            body.classList.toggle('show-english');
+            if (body.classList.contains('show-english')) {
+                toggleBtn.textContent = '切换到中文';
+            } else {
+                toggleBtn.textContent = 'Switch to English';
+            }
+        });
+        
+        // 平滑滚动效果
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // 导航栏滚动效果
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.1)';
+            } else {
+                nav.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+            }
+        });
+        
+        // 卡片悬停动画
+        const cards = document.querySelectorAll('.card');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-10px)';
+                card.style.boxShadow = '0 15px 30px rgba(0, 0, 0, 0.15)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+                card.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.05)';
+            });
+        });
+    </script>
+</body>
+</html>
